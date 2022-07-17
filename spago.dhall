@@ -1,9 +1,12 @@
 { name = "cat-box"
 , dependencies =
   [ "console"
+  , "control"
   , "effect"
+  , "either"
   , "foldable-traversable"
   , "lists"
+  , "parsing"
   , "prelude"
   , "test-unit"
   ]
