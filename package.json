@@ -1,0 +1,24 @@
+{
+  "name": "catbox",
+  "version": "0.1.0",
+  "description": "Cats and Boxes and its equation",
+  "author": "Max Smirnov <masynchin@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "build": "spago build",
+    "run": "spago run",
+    "test": "spago test"
+  },
+  "devDependencies": {
+    "purescript": "^0.15.3",
+    "spago": "^0.20.9"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Masynchin/CatBox.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Masynchin/CatBox/issues"
+  },
+  "homepage": "https://github.com/Masynchin/CatBox#readme"
+}
