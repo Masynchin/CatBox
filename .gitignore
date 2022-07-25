@@ -1,3 +1,6 @@
+# Bundle
+dist/main.js
+
 # Dependencies
 .psci_modules
 .spago

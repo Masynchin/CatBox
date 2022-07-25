@@ -6,6 +6,7 @@
   "license": "MIT",
   "scripts": {
     "build": "spago build",
+    "bundle": "spago bundle-app --main=Main --to=dist/main.js --minify",
     "run": "spago run",
     "test": "spago test"
   },
@@ -20,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/Masynchin/CatBox/issues"
   },
-  "homepage": "https://github.com/Masynchin/CatBox#readme"
+  "homepage": "https://github.com/Masynchin/CatBox#readme",
+  "dependencies": {
+    "esbuild": "^0.14.50"
+  }
 }
