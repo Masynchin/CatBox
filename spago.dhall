@@ -4,6 +4,7 @@
   , "control"
   , "effect"
   , "either"
+  , "flame"
   , "foldable-traversable"
   , "lists"
   , "parsing"
