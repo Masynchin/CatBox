@@ -1,6 +1,7 @@
 { name = "cat-box"
 , dependencies =
-  [ "console"
+  [ "arrays"
+  , "console"
   , "control"
   , "effect"
   , "either"
