@@ -24,6 +24,6 @@ For this model I created special syntax, which can be described in extended Back
 
 ~~~ebnf
 equation ::= box | cat
-box ::= equation, { equation }
-cat ::= 😼
+box ::= "[", equation, { equation }, "]"
+cat ::= "😼"
 ~~~
