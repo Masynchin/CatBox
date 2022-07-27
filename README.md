@@ -10,7 +10,6 @@ CatBox is little project based on this picture.
 
 ![Two cats in box which have funny equation](https://user-images.githubusercontent.com/47028153/181148822-2add4423-d7a5-4867-a399-5a3cf55de991.png)
 
-
 My motivation was to learn basic of monadic parsers, so I chose PureScript [parsec](https://github.com/purescript-contrib/purescript-parsing) with which I can build interactive game.
 
 Model of the game can be described like:
