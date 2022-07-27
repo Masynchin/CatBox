@@ -23,7 +23,7 @@ Box is one or more Equations.
 For this model I created special syntax, which can be described in extended Backus–Naur form like:
 
 ~~~ebnf
-equation ::= box | cat
-box ::= "[", equation, { equation }, "]"
-cat ::= "😼"
+equation = box | cat ;
+box = "[", equation, { equation }, "]" ;
+cat = "😼" ;
 ~~~
