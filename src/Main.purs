@@ -5,7 +5,6 @@ import Prelude
 import CatBox (Equation(..))
 import Data.Array (fromFoldable)
 import Data.Either (Either(..))
-import Data.Tuple (Tuple(..))
 import Effect (Effect)
 import Flame (QuerySelector(..), Html)
 import Flame.Application.NoEffects as FAN
@@ -16,12 +15,14 @@ import Parser (equation)
 import Parsing (runParser)
 
 type Model = { input :: String
-             , select :: Tuple Int Int
+             , select :: Selection
              }
+
+data Selection = Single Int | Many Int Int
 
 init :: Model
 init = { input: ""
-       , select: Tuple (-1) (-1)
+       , select: Single (-1)
        }
 
 data Message = Input String | Select Int Int
@@ -30,7 +31,9 @@ update :: Model -> Message -> Model
 update model =
   case _ of
     Input newInput -> model { input = newInput }
-    Select start end -> model { select = Tuple start end }
+    Select start end -> if start == end
+      then model { select = Single start }
+      else model { select = Many start end }
 
 view :: Model -> Html Message
 view model = HE.main "main" [renderInput, renderEquation model.input]
