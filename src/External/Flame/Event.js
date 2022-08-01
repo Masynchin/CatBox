@@ -15,3 +15,15 @@ export function selectionEnd_(event) {
     return event.target.selectionEnd;
   return -1;
 }
+
+// No any checks because it is called
+// only from "keydown" handlers.
+export function key_(event) {
+  return event.key;
+}
+
+// No any checks because it is called
+// only from "keydown" handlers.
+export function keyCode_(event) {
+  return event.keyCode;
+}

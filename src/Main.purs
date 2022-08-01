@@ -8,7 +8,7 @@ import Data.Either (Either(..))
 import Effect (Effect)
 import Flame (QuerySelector(..), Html)
 import Flame.Application.NoEffects as FAN
-import Flame.Event (onSelect)
+import Flame.Event (onKeydown, onSelect)
 import Flame.Html.Attribute as HA
 import Flame.Html.Element as HE
 import Parser (equation)
@@ -25,23 +25,26 @@ init = { input: ""
        , select: Single (-1)
        }
 
-data Message = Input String | Select Int Int
+data Message = Select Int Int | Key String
 
 update :: Model -> Message -> Model
 update model =
   case _ of
-    Input newInput -> model { input = newInput }
     Select start end -> if start == end
       then model { select = Single start }
       else model { select = Many start end }
+    Key key -> case key of
+      "c" -> model { input = "😼" }
+      "b" -> model { input = "[" <> model.input <> "]" }
+      _ -> model
 
 view :: Model -> Html Message
-view model = HE.main "main" [renderInput, renderEquation model.input]
+view model = HE.main "main" [renderInput model.input, renderEquation model.input]
 
-renderInput :: Html Message
-renderInput = HE.label_ [ HE.text "Input Equation:"
-                        , HE.input [HA.type' "text", HA.onInput Input, onSelect Select]
-                        ]
+renderInput :: String -> Html Message
+renderInput input = HE.label_ [ HE.text "Input Equation:"
+                              , HE.input [HA.type' "text", HA.value input, onSelect Select, onKeydown Key]
+                              ]
 
 renderEquation :: String -> Html Message
 renderEquation input =
