@@ -55,9 +55,10 @@ controlTip =
         ]
 
 renderInput :: String -> Html Message
-renderInput input = HE.label_ [ HE.text "Input Equation:"
-                              , HE.input [HA.type' "text", HA.value input, onSelect Select, onKeydown Key]
-                              ]
+renderInput input =
+  HE.label_ [ HE.text "Input Equation:"
+            , HE.input [HA.type' "text", HA.value input, onSelect Select, onKeydown Key]
+            ]
 
 renderEquation :: String -> Html Message
 renderEquation input =
