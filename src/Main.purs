@@ -39,7 +39,20 @@ update model =
       _ -> model
 
 view :: Model -> Html Message
-view model = HE.main "main" [renderInput model.input, renderEquation model.input]
+view model =
+  HE.main "main" [ controlTip
+                 , renderInput model.input
+                 , renderEquation model.input
+                 ]
+
+controlTip :: Html Message
+controlTip =
+  HE.p_ [ HE.text "Type "
+        , kbd [ HE.text "C" ]
+        , HE.text " to spawn cat and "
+        , kbd [ HE.text "B" ]
+        , HE.text " to put cat in the box."
+        ]
 
 renderInput :: String -> Html Message
 renderInput input = HE.label_ [ HE.text "Input Equation:"
@@ -63,6 +76,8 @@ boxElement = HE.div [HA.class' "box"]
 
 catElement :: Html Message
 catElement = HE.text "😼"
+
+kbd = HE.createElement_ "kbd"
 
 main :: Effect Unit
 main = FAN.mount_ (QuerySelector "body") app
