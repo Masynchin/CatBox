@@ -11,6 +11,7 @@
   , "maybe"
   , "parsing"
   , "prelude"
+  , "strings"
   , "test-unit"
   , "tuples"
   , "web-events"

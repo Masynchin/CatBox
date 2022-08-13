@@ -5,6 +5,7 @@ import Prelude
 import CatBox (Equation(..))
 import Data.Array (fromFoldable)
 import Data.Either (Either(..))
+import Data.String.CodeUnits (splitAt)
 import Effect (Effect)
 import Flame (QuerySelector(..), Html)
 import Flame.Application.NoEffects as FAN
@@ -34,9 +35,14 @@ update model =
       then model { select = Single start }
       else model { select = Many start end }
     Key key -> case key of
-      "c" -> model { input = "😼" }
+      "c" -> model { input = putCat model.select model.input }
       "b" -> model { input = "[" <> model.input <> "]" }
       _ -> model
+
+putCat :: Selection -> String -> String
+putCat (Many _ _) = identity
+putCat (Single n) = put <<< splitAt n
+  where put { before, after } = before <> "😼" <> after
 
 view :: Model -> Html Message
 view model =
