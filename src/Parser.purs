@@ -1,7 +1,6 @@
 module Parser
   ( equation
-  )
-  where
+  ) where
 
 import Prelude
 
@@ -14,9 +13,7 @@ import Parsing.String (char, string)
 type P a = Parser String a
 
 cat :: P Equation
-cat = do
-  _ <- string "😼"
-  pure Cat
+cat = string "😼" $> Cat
 
 box :: P Equation
 box = do
